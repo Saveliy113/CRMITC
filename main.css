@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: rgb(18, 18, 18);
+    color: #fff;
+    width: 100wh;
+    height: 100vh;
+    font-family: 'Comfortaa', cursive;
+    font-size: 0.88rem;
+    overflow-x: hidden;
+}
+h1{
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+h2{
+    font-size: 1.4rem;
+}
+h3{
+    font-size: 1.3rem;
+}
+h4{
+    font-size: 0.8rem;
+}
+h5{
+    font-size: 0.77rem;
+}
+i{
+    font-size: 1.3rem;
+}
+button{
+    text-decoration: none;
+    font-family: 'Comfortaa', cursive;
+    padding: .8rem 1.5rem;
+    border-radius: 1rem;
+    font-weight: 700;
+    font-size: large;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px black;
+    transition: all .1s ease-in;
+}
+button:hover{
+    border: 3px solid rgb(52, 121, 248);
+    color: rgb(52, 121, 248);
+    box-shadow: none;
+}
+.container{
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding-right: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*          Sidebar          */
+aside{
+    width: 18%;
+    height: 100vh;
+    background: rgb(29, 29, 29);
+    box-shadow: 5px 5px 10px black;
+    padding-left: 1rem;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}
+aside .menu{
+    display: flex;
+    flex-direction: column;
+}
+.logo{
+    margin-top: 1.4rem;
+    margin-bottom: 3rem;
+    width: fit-content;
+}
+.logo a{
+    display: block;
+}
+.menu a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    margin-left: 1rem;
+    margin-bottom: 0.8rem;
+    padding: 0.7rem 0 0.7rem 0.8rem;
+    gap: 1rem;
+    transition: padding-left .3s ease-in;
+}
+.menu a h3,
+.menu a i{
+    font-weight: 300;
+    transition: all .2s ease-in;
+}
+.menu a:hover{
+    color: rgb(52, 121, 248);
+    background: rgb(19, 19, 19);
+    border-left: 3px solid rgb(52, 121, 248);
+    border-bottom-left-radius: 0.3rem;
+    border-top-left-radius: 0.3rem;
+    padding-left: 1rem;
+}
+
+/*          Header          */
+.header{
+    display: flex;
+    justify-content: end;
+    width: 82%;
+    height: 5rem;
+    /* border: 1px solid #fff; */
+}
+.header__login{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: lightgray;
+}
+.login__text{
+    text-align: right;
+}
+.login__text h4{
+    margin-top: 0.1rem;
+}
+#user__name{
+    color: white;
+    font-size: large;
+    font-weight: 700;
+}
+#user__img{
+    border-radius: 50%;
+    width: 3rem;
+}
+
+/*      Login Form      */
+.loginform__container{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.507);
+    animation: fadein .5s;
+    animation-fill-mode: forwards;
+}
+@keyframes fadein{
+    0%{opacity: 0; visibility: hidden;}
+    100%{opacity: 1; visibility: visible;}
+}
+.loginform__container.ifHidden{
+    animation: fadeout .5s;
+    animation-fill-mode: forwards;
+}
+@keyframes fadeout{
+    0%{opacity:1}
+    100%{opacity: 0; visibility: hidden;}
+}
+.login__form{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+    box-shadow: 1px 1px 2px rgb(52, 121, 248);
+    width: 300px;
+    height: 320px;
+    padding: 30px;
+    transition: all .5s ease;
+}
+.login__form.ifHidden{
+    height: 0px;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding: 0;
+}
+.login__username,
+.login__password{
+    position: relative;
+}
+.login__form h1{
+    text-transform: uppercase;
+    font-weight: 700;
+    align-self: center;
+}
+.login__form input{
+    font-size: 1.2rem;
+    border: none;
+    background: none;
+    display: block;
+    margin: 1.2rem auto;
+    text-align: center;
+    border: 3px solid rgb(52, 121, 248);
+    padding: 0.8rem 0.6rem;
+    width: 220px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: all .2s ease-in;
+}
+.login__form input:focus{
+    width: 250px;
+    border-color: #ffc400ec;
+}
+.login__form i{
+    position: absolute;
+    left: 20px;
+    top: 35px;
+}
+#login__btn{
+    width: 50%;
+    margin: 0 auto;
+}
+
+

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./main.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>ITC Bootcamp</title>
+</head>
+<body>
+    <div class="container">
+        <aside>
+            
+            <div class="logo">
+                <a href="#">
+                    <img src="./images/ITClogoW.png" alt="ITClogo">
+                </a>
+            </div>
+fdsfdsafds
+            <div class="menu">
+                <a href="#">
+                    <i class='bx bx-home'></i>
+                    <h3>Главная</h3>
+                </a>
+                <a href="#">
+                    <i class='bx bxs-map'></i>
+                    <h3>Филиалы</h3>
+                </a>
+                <a href="#">
+                    <i class='bx bx-book-bookmark'></i>
+                    <h3>Курсы</h3>
+                </a>
+                <a href="#">
+                    <i class='bx bx-user-circle'></i>
+                    <h3>Студенты</h3>
+                </a>
+                <a href="#">
+                    <i class='bx bx-money-withdraw'></i>
+                    <h3>Оплаты</h3>
+                </a>
+            </div>
+        </aside>
+
+        <div class="header">
+            <div class="header__login">
+                <button onclick="openLogin()" class="login__btn">
+                    Login
+                </button>
+                <!-- <div class="login__text">
+                    Hello, <span id="user__name">Daniel</span>
+                    <h4>Студент</h4>
+                </div>
+                <img id="user__img" src="./images/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg" alt=""> -->
+            </div>
+        </div>
+
+        <div class="loginform__container ifHidden">
+            <form action="" class="login__form ifHidden" id="login">
+                <h1>Login</h1>
+                <div class="login__username">
+                    <input type="text" id="username" placeholder="Логин" maxlength="15">
+                    <i class='bx bx-user'></i>
+                </div>
+                <div class="login__password">
+                    <input type="text" id="password" placeholder="Пароль" maxlength="15">
+                    <i class='bx bx-lock-open-alt'></i>
+                </div>
+                <button id="login__btn" type="submit">Войти</button>
+            </form>
+        </div>
+    </div>
+<script src="./main.js"></script>
+</body>
+</html>

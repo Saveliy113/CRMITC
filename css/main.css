@@ -95,7 +95,8 @@ aside .menu{
     font-weight: 300;
     transition: all .2s ease-in;
 }
-.menu a:hover{
+.menu a:hover,
+.a.active{
     color: rgb(52, 121, 248);
     background: rgb(19, 19, 19);
     border-left: 3px solid rgb(52, 121, 248);
@@ -223,41 +224,134 @@ aside .menu{
     margin: 0 auto;
 }
 
-/*      Table       */
+/*          Table           */
 .table__box{
-    width: 70%;
+    width: 90%;
     margin: 50px auto;
 }
 .filter{
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
 }
 .search{
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 .select__wrapper{
     position: relative;
+    margin-left: 20px;
 }
-.filter__select{
-    position: relative;
-    appearance: none;
-    outline: none;
-    padding: 8px 30px 8px 8px;
-    border-radius: 5px;
-    font-size: large;
-    background-color: whitesmoke;
-    font-family: 'Comfortaa', cursive;
-    font-weight: 700;
-    cursor: pointer;
-}
-.filter__select::after{
+.select__wrapper::after{
+    position: absolute;
     content: '';
     display: block;
-    width: 50px;
-    height: 50px;
-    background: url('../images/ITClogo.png');
-    position: absolute;
+    background: url('../images/Arrow-down.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    height: 40px;
+    width: 24px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    pointer-events: none;
+    background-color: lightgray;
 }
+#select__count{
+    position: relative;
+    outline: none;
+    border: none;
+    padding: 10px 35px 10px 8px;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: large;
+    font-weight: 700;
+    cursor: pointer;
+    appearance: none;
+}
+.search label{
+    margin-bottom: 5px;
+    font-size: large;
+    position: absolute;
+    top: -25px;
+    left: 0;
+    color: #fff;
+}
+.search input{
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    margin-right: 20px;
+    padding-left: 10px;
+    font-family: inherit;
+    font-size: large;
+    transition: all .1s ease-in-out;
+    box-sizing: content-box;
+}
+.search input:focus{
+    outline: 2px solid rgb(52, 121, 248);
+}
+.content__table{
+    border-collapse: collapse;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    margin: 25px 0;
+    font-size: 1rem;
+    width: 100%;
+    font-weight: 300;
+    box-shadow: 0 0 10px black;
+}
+.content__table thead tr{
+    background-color:  lightgray;
+    color: black;
+    font-weight: 700;
+}
+.content__table thead tr th{
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+.content__table th,
+.content__table td{
+    text-align: center;
+    padding: 11px 15px;
+}
+.content__table tbody tr{
+    border-bottom: 1px solid rgb(52, 121, 248);
+}
+.content__table tbody tr:nth-of-type(even){
+    background-color: rgb(30, 30, 30);
+}
+.content__table tbody tr:last-of-type{
+    border-bottom: 2px solid lightgray;
+}
+.table__buttons{
+    text-align: center;
+}
+.table__buttons button {
+    margin-right: 0;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+}
+.table__buttons button:first-child{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.table__buttons button:last-child{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+
+
+
+
+
 
 

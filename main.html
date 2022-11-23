@@ -40,34 +40,52 @@
             </div>
         </aside>
 
-        <div class="header">
-            <div class="header__login">
-                <button onclick="openLogin()" class="login__btn">
-                    Login
-                </button>
-                <!-- <div class="login__text">
-                    Hello, <span id="user__name">Daniel</span>
-                    <h4>Студент</h4>
+        <div class="content__box">
+            <div class="header">
+                <div class="header__login">
+                    <button onclick="openLogin()" class="login__btn">
+                        Login
+                    </button>
+                    <!-- <div class="login__text">
+                        Hello, <span id="user__name">Daniel</span>
+                        <h4>Студент</h4>
+                    </div>
+                    <img id="user__img" src="./images/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg" alt=""> -->
                 </div>
-                <img id="user__img" src="./images/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg" alt=""> -->
+            </div>
+
+            <div class="loginform__container ifHidden">
+                <form action="" class="login__form ifHidden" id="login">
+                    <h1>Login</h1>
+                    <div class="login__username">
+                        <input type="text" id="username" placeholder="Логин" maxlength="15">
+                        <i class='bx bx-user'></i>
+                    </div>
+                    <div class="login__password">
+                        <input type="text" id="password" placeholder="Пароль" maxlength="15">
+                        <i class='bx bx-lock-open-alt'></i>
+                    </div>
+                    <button id="login__btn" type="submit">Войти</button>
+                </form>
+            </div>
+
+            <div class="table__box">  
+                <div class="filter">
+                    <div class="select__wrapper">
+                        <select class="filter__select" name="show__number">
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="30">30</option>
+                        </select>
+                    </div>
+                    <div class="search">
+                        <label for="search" id="">Search:</label>
+                        <input id="search" type="text">
+                    </div>
+                </div>
+            </div>
             </div>
         </div>
-
-        <div class="loginform__container ifHidden">
-            <form action="" class="login__form ifHidden" id="login">
-                <h1>Login</h1>
-                <div class="login__username">
-                    <input type="text" id="username" placeholder="Логин" maxlength="15">
-                    <i class='bx bx-user'></i>
-                </div>
-                <div class="login__password">
-                    <input type="text" id="password" placeholder="Пароль" maxlength="15">
-                    <i class='bx bx-lock-open-alt'></i>
-                </div>
-                <button id="login__btn" type="submit">Войти</button>
-            </form>
-        </div>
-    </div>
 <script src="./js/main.js"></script>
 </body>
 </html>

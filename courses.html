@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8">                                                       
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/courses.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>ITC Bootcamp</title>
 </head>
@@ -25,7 +26,7 @@
                     <i class='bx bxs-map'></i>
                     <h3>Филиалы</h3>
                 </a>
-                <a href="#">
+                <a class="a active" href="#">
                     <i class='bx bx-book-bookmark'></i>
                     <h3>Курсы</h3>
                 </a>
@@ -40,36 +41,110 @@
             </div>
         </aside>
 
-        <div class="header">
-            <div class="header__login">
-                <button onclick="openLogin()" class="login__btn">
-                    Login
-                </button>
-                <!-- <div class="login__text">
-                    Hello, <span id="user__name">Daniel</span>
-                    <h4>Студент</h4>
+        <div class="content__box">
+            <div class="header">
+                <div class="header__login">
+                    <button onclick="openLogin()" class="login__btn">
+                        Login
+                    </button>
+                    <!-- <div class="login__text">
+                        Hello, <span id="user__name">Daniel</span>
+                        <h4>Студент</h4>
+                    </div>
+                    <img id="user__img" src="./images/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg" alt=""> -->
                 </div>
-                <img id="user__img" src="./images/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg" alt=""> -->
+            </div>
+
+            <div class="loginform__container ifHidden">
+                <form action="" class="login__form ifHidden" id="login">
+                    <h1>Login</h1>
+                    <div class="login__username">
+                        <input type="text" id="username" placeholder="Логин" maxlength="15">
+                        <i class='bx bx-user'></i>
+                    </div>
+                    <div class="login__password">
+                        <input type="text" id="password" placeholder="Пароль" maxlength="15">
+                        <i class='bx bx-lock-open-alt'></i>
+                    </div>
+                    <button id="login__btn" type="submit">Войти</button>
+                </form>
+            </div>
+
+            <div class="table__box">  
+                <div class="filter">
+                    <div class="select__wrapper">
+                        <select name="" id="select__count">
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="30">30</option>
+                            <option value="30">all</option>
+                        </select>
+                    </div>
+                    <div class="search">
+                        <label for="search" id="">Search:</label>
+                        <input id="search" type="text">
+                    </div>
+                </div>
+                <table class="content__table table">
+                    <thead>
+                        <tr>
+                          <th>ID</th>
+                          <th>Название курса</th>
+                          <th>Старт</th>
+                          <th>Завершение</th>
+                          <th>Стоимость</th>
+                        </tr>
+                      </thead>
+                      <tbody class="table__body">
+                        
+                      </tbody>
+                </table>
+                <div class="table__buttons">
+                    <button onclick="addCourseOpen()">Добавить курс</button>
+                    <button>Previous</button>
+                    <button>1</button>
+                    <button>Next</button>
+                </div>
+            </div>
+            <div class="form-container visually-hidden">
+                <form class="new-course" action="">
+                    <label>
+                        Название курса
+                        <input type="text" onchange="getValue()">
+                    </label>
+                    <label>
+                        Направление
+                        <input type="text">
+                    </label>
+                    <label>
+                        Ментор
+                        <input type="text">
+                    </label>
+                    <label>
+                        Старт курса
+                        <input type="text">
+                    </label>
+                    <label>
+                        Время начала курса
+                        <input type="text">
+                    </label>
+                    <label>
+                        Завершение курса
+                        <input type="text">
+                    </label>
+                    <label>
+                        Длительность курса
+                        <input type="text">
+                    </label>
+                    <label>
+                        Стоимость курса
+                        <input type="text">
+                    </label>
+                    <input type="button" value="Сохранить">
+                    <input type="button" value="Отмена" onclick="addCourseClose()">
+                </form>
             </div>
         </div>
-
-        <div class="loginform__container ifHidden">
-            <form action="" class="login__form ifHidden" id="login">
-                <h1>Login</h1>
-                <div class="login__username">
-                    <input type="text" id="username" placeholder="Логин" maxlength="15">
-                    <i class='bx bx-user'></i>
-                </div>
-                <div class="login__password">
-                    <input type="text" id="password" placeholder="Пароль" maxlength="15">
-                    <i class='bx bx-lock-open-alt'></i>
-                </div>
-                <button id="login__btn" type="submit">Войти</button>
-            </form>
-        </div>
-    </div>
-
-    <h1>courses page</h1>
 <script src="./js/main.js"></script>
 <script src="./js/courses.js"></script>
 </body>

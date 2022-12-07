@@ -18,7 +18,7 @@ fetch('http://165.22.49.123:5000/api/v1/mainapp/course/', {
     data.map(item => {
       table.innerHTML += 
       `
-      <tr>
+      <tr class="table__row">
         <td>${item.id}</td>
         <td>${item.title}</td>
         <td>${item.date_start}</td>
@@ -29,31 +29,32 @@ fetch('http://165.22.49.123:5000/api/v1/mainapp/course/', {
    });
   });
 
-// fetch('/login_ajax.php', {
-//   method: 'POST',
-//   body: params
-// }).then(
-//   response => {
-//      return response.text();
-//   }
-// ).then(
-//   text => {
-//      document.getElementById('result').innerHTML = text;
-//   }
-// );
+const params = {};  
+
+function saveNewCourse() {  
+  fetch('http://165.22.49.123:5000/api/v1/mainapp/course/', {
+    headers: headers,
+    method: "POST",
+    body: JSON.stringify(params)
+  })
+  .then(response => response.json())
+  .then(json => console.log(json));
+}
 
 
-  function addCourseOpen() {
-    addCourseForm.classList.remove('visually-hidden');
+function addCourseOpen() {
+  addCourseForm.classList.remove('visually-hidden');
+}
+
+function addCourseClose() {
+  addCourseForm.classList.add('visually-hidden');
+  for (var key in params) {
+    delete params[key];
   }
+}
 
-  function addCourseClose() {
-    addCourseForm.classList.add('visually-hidden');
-  }
-
-  function getValue() {
-    console.log(enent.target.value);
-  }
-
+function getValue(name, value) {
+  params[name] = value;
+}
 
   

@@ -1,41 +1,180 @@
-.pagination__container{
-    width: 100%;
+.pagination__container {
+  width: 100%;
 }
-.pagination-buttons{
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
+.pagination-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
 }
-.page-btn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 20px;
-    text-align: center;
-    /* padding: 5px 10px; */
-    border-radius: 5px;
+.page-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 20px;
+  text-align: center;
+  /* padding: 5px 10px; */
+  border-radius: 5px;
 }
-.page-btn[class$="-page"]{
-    width: 80px;
-    background-color: #ccc;
+.page-btn[class$='-page'] {
+  width: 80px;
+  background-color: #ccc;
 }
-.page-btn:disabled{
-    outline: none;
-    /* color: none; */
+.page-btn:disabled {
+  outline: none;
+  /* color: none; */
 }
-.page-btn.active{
-    outline: 2px solid rgb(52, 121, 248);
-    color: rgb(52, 121, 248);
-    box-shadow: none;
+.page-btn.active {
+  outline: 2px solid rgb(52, 121, 248);
+  color: rgb(52, 121, 248);
+  box-shadow: none;
 }
-.table__row.hide{
-    display: none;
+.table__row.hide {
+  display: none;
 }
-mark{
-    background-color: rgb(52, 121, 248);
-    color: #fff;
+mark {
+  background-color: rgb(52, 121, 248);
+  color: #fff;
+}
+.table__row {
+  cursor: pointer;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
+.form-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.new-course {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 30px;
+
+  width: 50%;
+  height: 50%;
+
+  background-color: rgb(23, 20, 92);
+}
+
+/*      Login Form      */
+.studentAdd__container {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  animation: fadein 0.5s;
+  animation-fill-mode: forwards;
+  z-index: 1;
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.studentAdd__container.ifHidden {
+  animation: fadeout 0.5s;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.studentAdd__form {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 1);
+  box-shadow: 1px 1px 2px rgb(52, 121, 248);
+  width: 500px;
+  height: fit-content;
+  max-height: 90%;
+  padding: 30px;
+  transition: all 0.5s ease;
+  overflow-y: scroll;
+}
+.studentAdd__form::-webkit-scrollbar {
+  display: none;
+}
+.studentAdd__form.ifHidden {
+  height: 0px;
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding: 0;
+}
+.input__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 50px;
+}
+.input__wrapper label {
+  font-size: medium;
+}
+.studentAdd__form h1 {
+  text-transform: uppercase;
+  font-weight: 700;
+  align-self: center;
+  margin-bottom: 20px;
+}
+.studentAdd__form input {
+  font-size: 1rem;
+  border: none;
+  background: none;
+  display: block;
+  margin: 1.2rem auto;
+  text-align: center;
+  border: 1px solid rgb(52, 121, 248);
+  padding: 0.3rem 0.6rem;
+  width: 100%;
+  outline: none;
+  color: white;
+  border-radius: 10px;
+  transition: all 0.2s ease-in;
+}
+.studentAdd__form i {
+  position: absolute;
+  left: 20px;
+  top: 35px;
+}
+#login__btn {
+  width: 50%;
+  margin: 0 auto;
+}

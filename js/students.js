@@ -1,5 +1,7 @@
 let token = '465f9a675caab0cca0c3752fd3a8912a8c4f5640';
 let studentsData;
+let recrouterData;
+let courseData;
 const studentsTable = document.getElementById('students__table');
 const rowsFilter = document.getElementById('select__rows');
 const searchInput = document.querySelector('#search');
@@ -10,13 +12,20 @@ let pagesAmount;
 
 //-------------STUDENTS DATA REQUEST------------------------//
 const getStudentsData = async () => {
-  const response = await sendRequest(
+  const studentsResponse = await sendRequest(
     'GET',
     'http://165.22.49.123:5000/api/v1/students/students/',
     token
   );
-  studentsData = response;
+  studentsData = studentsResponse;
+  const recrouterResponse = await sendRequest(
+    'GET',
+    'http://165.22.49.123:5000/api/users/users',
+    token
+  );
+  recrouterData = recrouterResponse;
   console.log(studentsData);
+  console.log(recrouterData);
 };
 
 //-------------SETTING STUDENTS DATA TO TABLE---------------//
@@ -110,9 +119,11 @@ function tableRender(page) {
             <th>Учится</th>
         </tr>
     </thead>
+    <tbody class="table__body"> </tbody>
     `;
+  const tableBody = document.querySelector('.table__body');
   items.forEach((element, index) => {
-    studentsTable.innerHTML += `
+    tableBody.innerHTML += `
         <tr class="table__row">
             <td>${start + index + 1}</td>
             <td class="student__name">${element.full_name}</td>
@@ -120,39 +131,31 @@ function tableRender(page) {
             <td>${element.full_payment}</td>
             <td>${element.remainder}</td>
             <td>belek</td>
-            <td></td>
-            <td><input type="checkbox" checked="${
-              element.studies
-            }" onclick="checkboxBlock(event)"></td>
+            <td>${element.contract ? '✔️' : '❌'}</td>
+            <td>${element.studies ? '✔️' : '❌'}</td>
         </tr>
         `;
   });
-  // studentsData.forEach((element, index) => {
-  //     i++;
-  //     // console.log(i);
-  //     // console.log(rowsPerPage);
-  //     // console.log('Item added')
-  //     if(i <= rowsPerPage) {
-  //     studentsTable.innerHTML += `
-  //     <tr>
-  //         <td>${index+1}</td>
-  //         <td>${element.full_name}</td>
-  //         <td>${element.payment}</td>
-  //         <td>${element.full_payment}</td>
-  //         <td>${element.remainder}</td>
-  //         <td>belek</td>
-  //         <td></td>
-  //         <td></td>
-  //     </tr>
-  //     `
-  //     };
-  // });
+  const tableRows = document.querySelectorAll('.table__row');
+  tableRows.forEach((element) => {
+    element.addEventListener('click', () => {
+      console.log('dklghsflkfdl;');
+    });
+  });
 }
 
-function checkboxBlock(event) {
-  console.log(event);
-  event.preventDefault();
-  return false;
+//------------------STUDENT ADD FORM OPEN AND HIDE-----------------------//
+const studentAddContainer = document.querySelector('.studentAdd__container');
+studentAddContainer.addEventListener('click', hideForm);
+function hideForm(event) {
+  if (event.target.className == 'studentAdd__container')
+    if (event.target.className !== 'studentAdd__form') {
+      studentAddContainer.classList.add('ifHidden');
+    }
+}
+
+function openStudentAddForm() {
+  studentAddContainer.classList.remove('ifHidden');
 }
 
 //-------------------PAGINATION---------------------------//

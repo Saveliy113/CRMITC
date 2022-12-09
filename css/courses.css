@@ -33,3 +33,9 @@
 
   background-color: rgb(23, 20, 92);
 }
+
+.table__row:hover {
+  color: rgb(138, 197, 248);
+  transform: scale(1.1);
+  cursor: pointer;
+}

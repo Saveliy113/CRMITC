@@ -110,37 +110,37 @@
                 <form class="new-course" action="">
                     <label>
                         Название курса
-                        <input type="text" onchange="getValue()">
+                        <input type="text" name="title" onchange="getValue(this.name, this.value)">
                     </label>
                     <label>
                         Направление
-                        <input type="text">
+                        <input type="number" name="direction" onchange="getValue(this.name, this.value)">
                     </label>
                     <label>
                         Ментор
-                        <input type="text">
+                        <input type="number" name="mentor" onchange="getValue(this.name, this.value)">
                     </label>
                     <label>
                         Старт курса
-                        <input type="text">
+                        <input type="text" name="date_start" onchange="getValue(this.name, this.value)">
                     </label>
                     <label>
                         Время начала курса
-                        <input type="text">
+                        <input type="text" name="time_start" onchange="getValue(this.name, this.value)">
                     </label>
                     <label>
-                        Завершение курса
-                        <input type="text">
+                        Время завершения курса
+                        <input type="text" name="time_end" onchange="getValue(this.name, this.value)">
                     </label>
                     <label>
                         Длительность курса
-                        <input type="text">
+                        <input type="text" name="course_duration" onchange="getValue(this.name, this.value)">
                     </label>
                     <label>
                         Стоимость курса
-                        <input type="text">
+                        <input type="text" name="price" onchange="getValue(this.name, this.value)">
                     </label>
-                    <input type="button" value="Сохранить">
+                    <input type="button" value="Сохранить" onclick="saveNewCourse()">
                     <input type="button" value="Отмена" onclick="addCourseClose()">
                 </form>
             </div>

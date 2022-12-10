@@ -245,6 +245,11 @@ aside .menu {
   width: 90%;
   margin: 50px auto 10px auto;
 }
+.table__row:hover {
+  color: rgb(138, 197, 248);
+  transform: scale(1.1);
+  cursor: pointer;
+}
 .filter {
   display: flex;
   justify-content: space-between;

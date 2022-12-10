@@ -42,46 +42,67 @@
         </aside>
 
         <div class="studentAdd__container ifHidden">
-            <form action="" class="studentAdd__form" id="login">
+            <div action="" class="studentAdd__form ifHidden" id="login">
                 <h1>Добавить студента</h1>
                 <div class="input__wrapper">
                     <label for="username">ФИО</label>
-                    <input type="text" id="username">
+                    <input type="text" id="input__name" maxlength="255" required>
                 </div>
                 <div class="input__wrapper">
                     <label for="username">Месяц начала</label>
-                    <input type="text" id="username">
+                    <select name="" id="select__month">
+                        <option value="1">Январь</option>
+                        <option value="2">Февраль</option>
+                        <option value="3">Март</option>
+                        <option value="4">Апрель</option>
+                        <option value="5">Май</option>
+                        <option value="6">Июнь</option>
+                        <option value="7">Июль</option>
+                        <option value="8">Август</option>
+                        <option value="9">Сентябрь</option>
+                        <option value="10">Октябрь</option>
+                        <option value="11">Ноябрь</option>
+                        <option value="12">Декабрь</option>
+                    </select>
                 </div>
                 <div class="input__wrapper">
                     <label for="username">Email</label>
-                    <input type="text" id="username">
+                    <input type="text" id="input__email" maxlength="255">
                 </div>
                 <div class="input__wrapper">
                     <label for="username">Скидка</label>
-                    <input type="text" id="username">
+                    <input type="number" id="input__discount">
                 </div>
                 <div class="input__wrapper">
                     <label for="username">Телефон</label>
-                    <input type="text" id="username">
+                    <input type="text" id="input__phone" maxlength="255">
                 </div>
                 <div class="input__wrapper">
                     <label for="username">Курс</label>
-                    <input type="text" id="username">
+                    <select name="" id="select__course">
+                        <option value="#" selected hidden>Выберите курс</option>
+                    </select>
                 </div>
                 <div class="input__wrapper">
                     <label for="username">Учится</label>
-                    <input type="text" id="username">
+                    <input type="checkbox" id="input__studies">
                 </div>
                 <div class="input__wrapper">
                     <label for="username">Рекрутер</label>
-                    <input type="text" id="username">
+                    <select name="" id="select__recrouter">
+                        <option value="#" selected hidden>Выберите рекрутера</option>
+                    </select>
                 </div>
                 <div class="input__wrapper">
                     <label for="username">Договор</label>
-                    <input type="text" id="username">
+                    <input type="checkbox" id="input__contract">
                 </div>
-                <button id="login__btn" type="submit">Добавить</button>
-            </form>
+                <div class="input__wrapper">
+                    <label for="username">Комментарий</label>
+                    <textarea name="" id="input__comment" cols="30" rows="5"></textarea>
+                </div>
+                <button onclick="createNewStudent()" id="studentAdd__btn" type="submit">Добавить</button>
+            </div>
         </div>
 
         <div class="content__box">

@@ -1,3 +1,16 @@
+/* 
+full_name +
+start_mount Месяц начало +
+email +
+discount скидка в процентах
+phone +-
+course -
+studies -
+comment
+recruiter
+contract
+*/
+
 let token = '465f9a675caab0cca0c3752fd3a8912a8c4f5640';
 let studentsData;
 let recrouterData;
@@ -12,20 +25,27 @@ let pagesAmount;
 
 //-------------STUDENTS DATA REQUEST------------------------//
 const getStudentsData = async () => {
-  const studentsResponse = await sendRequest(
+  const studentsResponse = await sendGetRequest(
     'GET',
     'http://165.22.49.123:5000/api/v1/students/students/',
     token
   );
   studentsData = studentsResponse;
-  const recrouterResponse = await sendRequest(
+  const recrouterResponse = await sendGetRequest(
     'GET',
     'http://165.22.49.123:5000/api/users/users',
     token
   );
   recrouterData = recrouterResponse;
+  const courseResponse = await sendGetRequest(
+    'GET',
+    'http://165.22.49.123:5000/api/v1/mainapp/course/',
+    token
+  );
+  courseData = courseResponse;
   console.log(studentsData);
   console.log(recrouterData);
+  console.log(courseResponse);
 };
 
 //-------------SETTING STUDENTS DATA TO TABLE---------------//
@@ -142,20 +162,6 @@ function tableRender(page) {
       console.log('dklghsflkfdl;');
     });
   });
-}
-
-//------------------STUDENT ADD FORM OPEN AND HIDE-----------------------//
-const studentAddContainer = document.querySelector('.studentAdd__container');
-studentAddContainer.addEventListener('click', hideForm);
-function hideForm(event) {
-  if (event.target.className == 'studentAdd__container')
-    if (event.target.className !== 'studentAdd__form') {
-      studentAddContainer.classList.add('ifHidden');
-    }
-}
-
-function openStudentAddForm() {
-  studentAddContainer.classList.remove('ifHidden');
 }
 
 //-------------------PAGINATION---------------------------//
@@ -297,14 +303,104 @@ function PaginationButtons(totalPages, maxPageVisible = 5, currentPage = 1) {
   };
 }
 
+//------------------STUDENT ADD FORM OPEN, RENDER, ADDING-----------------------//
+const studentAddContainer = document.querySelector('.studentAdd__container');
+const studentAddForm = document.querySelector('.studentAdd__form');
+studentAddContainer.addEventListener('click', hideForm);
+const courseSelect = document.querySelector('#select__course');
+const recrouterSelect = document.querySelector('#select__recrouter');
+function hideForm(event) {
+  if (event.target.className == 'studentAdd__container')
+    if (event.target.className !== 'studentAdd__form') {
+      studentAddContainer.classList.add('ifHidden');
+      studentAddForm.classList.add('ifHidden');
+      courseSelect.innerHTML =
+        '<option value="#" selected hidden>Выберите курс</option>';
+      recrouterSelect.innerHTML =
+        '<option value="#" selected hidden>Выберите рекрутера</option>';
+    }
+}
+
+function openStudentAddForm() {
+  studentAddContainer.classList.remove('ifHidden');
+  studentAddForm.classList.remove('ifHidden');
+  studentAddRender();
+}
+
+function studentAddRender() {
+  console.log(courseSelect);
+  console.log(recrouterSelect);
+  courseData.forEach((element) => {
+    courseSelect.innerHTML += `
+    <option value="${element.id}">${element.title}</option>
+    `;
+  });
+  recrouterData.forEach((element) => {
+    recrouterSelect.innerHTML += `
+    <option value="${element.id}">${element.username}</option>
+    `;
+  });
+}
+
+function createNewStudent() {
+  console.log('New student Created');
+  const studentName = document.querySelector('#input__name');
+  const startMonth = document.querySelector('#select__month');
+  const studentEmail = document.querySelector('#input__email');
+  const discount = document.querySelector('#input__discount');
+  const studentPhone = document.querySelector('#input__phone');
+  const course = document.querySelector('#select__course');
+  const studies = document.querySelector('#input__studies');
+  const recrouter = document.querySelector('#select__recrouter');
+  const contract = document.querySelector('#input__contract');
+  const comment = document.querySelector('#input__comment');
+  const reqBody = {
+    full_name: studentName.value,
+    start_mount: startMonth.value,
+    email: studentEmail.value,
+    discoint: discount.value,
+    phone: studentPhone.value,
+    course: course.value,
+    studies: studies.value,
+    comment: comment.value,
+    recruiter: recrouter.value,
+    contract: contract.value,
+  };
+  sendPostRequest(
+    'http://165.22.49.123:5000/api/v1/students/students/',
+    reqBody,
+    token
+  );
+};
+
 //-------------REQUEST TO SERVER WITH FETCH---------------//
-function sendRequest(method, url, token) {
+function sendGetRequest(method, url, token) {
   return fetch(url, {
     method: method,
     headers: {
       'Content-Type': 'application/json',
       Authorization: 'Token ' + token,
     },
+  }).then((response) => {
+    if (response.ok) {
+      return response.json();
+    }
+
+    return response.json().then((error) => {
+      const e = new Error('Что-то пошло не так');
+      e.data = error;
+      throw e;
+    });
+  });
+}
+function sendPostRequest(url, body = null, token) {
+  return fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'Token ' + token,
+    },
+    body: JSON.stringify(body),
   }).then((response) => {
     if (response.ok) {
       return response.json();

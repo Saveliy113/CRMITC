@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/students.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>ITC Bootcamp</title>
+    <title>ITC Bootcamp - Students</title>
 </head>
 <body>
     <div class="container">
@@ -17,7 +18,7 @@
                 </a>
             </div>
             <div class="menu">
-                <a class="a active" href="#">
+                <a href="./main.html">
                     <i class='bx bx-home'></i>
                     <h3>Главная</h3>
                 </a>
@@ -31,9 +32,9 @@
                 </a>
                 <a href="./students.html">
                     <i class='bx bx-user-circle'></i>
-                    <h3>Студенты</h3>
+                    <h3">Студенты</h3>
                 </a>
-                <a href="./payment.html">
+                <a href="./payment.html" class="a active">
                     <i class='bx bx-money-withdraw'></i>
                     <h3>Оплаты</h3>
                 </a>
@@ -43,14 +44,9 @@
         <div class="content__box">
             <div class="header">
                 <div class="header__login">
-                    <button onclick="openLogin()" class="login__btn">
+                    <button class="login__btn">
                         Login
                     </button>
-                    <!-- <div class="login__text">
-                        Hello, <span id="user__name">Daniel</span>
-                        <h4>Студент</h4>
-                    </div>
-                    <img id="user__img" src="./images/depositphotos_12196477-stock-photo-smiling-men-isolated-on-the.jpg" alt=""> -->
                 </div>
             </div>
 
@@ -72,11 +68,12 @@
             <div class="table__box">  
                 <div class="filter">
                     <div class="select__wrapper">
-                        <select name="" id="select__count">
+                        <select onchange="slct()"; name= ""; id="select__rows">
+                            <option value="5">5</option>
                             <option value="10">10</option>
                             <option value="20">20</option>
                             <option value="30">30</option>
-                            <option value="30">all</option>
+                            <option value="all">all</option>
                         </select>
                     </div>
                     <div class="search">
@@ -84,55 +81,27 @@
                         <input id="search" type="text">
                     </div>
                 </div>
-                <table class="content__table">
+                <table class="content__table" id="students__table">
                     <thead>
                         <tr>
                             <th>ID</th>
                             <th>Имя</th>
                             <th>Оплата</th>
+                            <th>Дата</th>
+                            <th>Рекрутер</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Салих</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Салих</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Салих</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Салих</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Салих</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Салих</td>
-                            <td>0</td>
-                        </tr>
                     </tbody>
                 </table>
-                <div class="table__buttons">
-                    <button>Previous</button>
-                    <button>1</button>
-                    <button>Next</button>
+                <div class="pagination__container">
+
                 </div>
-            </div>
+                
             </div>
         </div>
+        </div>
 <script src="./js/main.js"></script>
+<script src="./js/payment.js"></script>
 </body>
 </html>

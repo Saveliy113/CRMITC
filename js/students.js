@@ -157,9 +157,11 @@ function tableRender(page) {
         `;
   });
   const tableRows = document.querySelectorAll('.table__row');
-  tableRows.forEach((element) => {
+  tableRows.forEach((element, index) => {
     element.addEventListener('click', () => {
       console.log('dklghsflkfdl;');
+      console.log(items[index].id);
+      location.href = `http://127.0.0.1:5500/CRMITC/studentInfo.html?id=${items[index].id}`;
     });
   });
 }
@@ -371,7 +373,7 @@ function createNewStudent() {
     reqBody,
     token
   );
-};
+}
 
 //-------------REQUEST TO SERVER WITH FETCH---------------//
 function sendGetRequest(method, url, token) {

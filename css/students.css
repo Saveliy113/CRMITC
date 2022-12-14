@@ -183,3 +183,18 @@ mark {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+/*    STUDENT INFO PAGE    */
+.studentInfo{
+  width: 90%;
+  margin: 0 auto;
+}
+.studentInfo__item{
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+.studentInfo__item p{
+  margin-left: 20px;
+  font-size: large;
+}

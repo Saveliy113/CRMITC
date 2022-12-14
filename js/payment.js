@@ -275,6 +275,7 @@ function PaginationButtons(totalPages, maxPageVisible = 5, currentPage = 1) {
 function sendRequest(method, url, token) {
     return fetch(url, {
         method: method,
+        credentials: 'include',
         headers: {
             'Content-Type': 'application/json',
             Authorization: 'Token ' + token,
